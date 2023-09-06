@@ -25,17 +25,24 @@ cols = []
 for i in range(len(samples)):
     if "female" in samples[i]:
         cols.append(i)
+#male columns
+cols_m = []
+for i in range(len(samples)):
+    if "male" in samples[i] and "female" not in samples[i]:
+        cols_m.append(i)
 
 # Subset data of interest
 expression = data[row, cols]
-
+expression_m = data[row, cols_m]
 # Prepare data
 x = samples[cols]
 y = expression
-
+x_m = samples[cols_m]
+y_m = expression_m
 # Plot data
 fig, ax = plt.subplots()
 ax.set_title( "FBtr0073461" )
 ax.plot( x, y )
+ax.plot(x_m, y_m )
 fig.savefig( "FBtr0073461.png" )
 plt.close( fig )
