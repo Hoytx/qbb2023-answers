@@ -39,11 +39,16 @@ x = samples[cols]
 y = expression
 x_m = samples[cols_m]
 y_m = expression_m
+combine_x = ["10", "11", "12", "13", "14A", "14B", "14C", "14D"]
 # Plot data
 fig, ax = plt.subplots()
 ax.set_title( "FBtr0073461" )
-ax.plot( x, y )
-ax.plot(x_m, y_m )
-ax.plot(x_m, 2 * np.array(y_m))
+ax.plot(combine_x, y )
+ax.plot(combine_x, y_m )
+ax.plot(combine_x, 2 * np.array(y_m))
+plt.xticks(rotation = 90)
+plt.xlabel("developmental stage")
+plt.ylabel("mRNA abundance (RPKM)")
+
 fig.savefig( "FBtr0073461.png" )
 plt.close( fig )
