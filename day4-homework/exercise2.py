@@ -30,7 +30,10 @@ for i in range(1000):
     #ax.plot(range(len(output[0])), output[0])
     result_bin.append(output[1]) #takes the number of iterations to fixation for each run and adds them to a list
 
-plt.hist(result_bin) 
+plt.hist(result_bin)
+plt.xlabel("Generations To Fixation")
+plt.ylabel("Occurrences Over 1000 Trials")
+plt.savefig( "exercise_2_graph.jpg" ) 
 plt.show()
 
 

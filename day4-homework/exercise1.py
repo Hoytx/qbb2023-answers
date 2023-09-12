@@ -29,6 +29,9 @@ def simulate_wf(population_size, frequency):
 
 
 print(simulate_wf(250, 0.5))
+plt.xlabel("Generations")
+plt.ylabel("Allele Frequency")
+plt.savefig( "exercise_1_graph.jpg" )
 plt.show()
 
 # Get starting frequency and a population size

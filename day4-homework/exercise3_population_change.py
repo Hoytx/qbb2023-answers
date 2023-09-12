@@ -71,6 +71,7 @@ plt.ylabel("generations to fixation")
 #        output = simulate_wf(250, 0.5)
 #        ax.plot(range(len(output[0])), output[0])
 #dont need now but don't want to delete
+plt.savefig( "Population_Change_Fixation.jpg" )
 plt.show()
 
 
