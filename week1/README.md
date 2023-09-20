@@ -2,7 +2,7 @@ For Step 2.2
 1. The "size" of this relationship is equal to the coeffiecnt of the maternal age which is 0.3776. This means that on average the number of maternal de novo mutations increases by 0.3776 for each year older the mother is. Yes, this seems to follow the same trend I saw from the scatter plot.
 2. Yes the relationship is significant, I know this from the Prob (F-statistic) which is 6.88e-24. 
 For Step 2.3
-1. The "size" of this relationship is equal to the coeffiecnt of the paternal age which is equal to 1.3538. This means that on average the number of paternal de novo mutations increases by 0.3776 for each year older the father is. Yes, this seems to follow the same trend I saw from the scatter plot.
+1. The "size" of this relationship is equal to the coeffiecnt of the paternal age which is equal to 1.3538. This means that on average the number of paternal de novo mutations increases by 1.3538 for each year older the father is. Yes, this seems to follow the same trend I saw from the scatter plot.
 2. Yes the relationship is significant, I know this from the Prob (F-statistic) which is 1.55e-84.
 For Step 2.4
 	y = mx + b
