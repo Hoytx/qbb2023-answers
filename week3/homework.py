@@ -41,9 +41,9 @@ for i in range(1, len(sequence1)+1): # loop through rows
         x = sequence2[j-1]
         y = sequence1[i-1]
         if sequence1[i-1] == sequence2[j-1]: # if sequence1 and sequence2 match at positions i and j, respectively...
-            d = F_matrix[i-1, j-1] + score_matrix.loc[x, y]            
+            d = F_matrix[i-1, j-1] + float(score_matrix.loc[x, y])            
         else: # if sequence1 and sequence2 don't match at those positions...the score matrix will give the mismatch penalty
-            d = F_matrix[i-1, j-1] + score_matrix.loc[x, y]
+            d = F_matrix[i-1, j-1] + float(score_matrix.loc[x, y])
         h = F_matrix[i,j-1] + gap_penalty
         v = F_matrix[i-1,j] + gap_penalty
         if max(d,h,v) == d:
@@ -51,10 +51,10 @@ for i in range(1, len(sequence1)+1): # loop through rows
             traceback_matrix[i,j] = 'D'
         elif max(d,h,v) == h:
             F_matrix[i,j] = h
-            traceback_matrix[i,j] = 'U'
+            traceback_matrix[i,j] = 'L'
         elif max(d,h,v) == v:
             F_matrix[i,j] = v
-            traceback_matrix[i,j] = 'L'
+            traceback_matrix[i,j] = 'U'
 #Setting myself up to start in the bottom right corner
 i = len(sequence1) - 1
 j = len(sequence2) - 1
@@ -64,7 +64,7 @@ seq2_align = ""
 path = ''
 gaps1 = 0
 gaps2 = 0
-while i + j != 0:
+while i != 0 and j != 0:
     if traceback_matrix[i,j] == 'D':
         seq1_align = sequence1[i-1] + seq1_align
         seq2_align = sequence2[j-1] + seq2_align

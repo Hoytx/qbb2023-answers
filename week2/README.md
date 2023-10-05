@@ -1,6 +1,6 @@
 For Step 1.1
 1. Take your genome length, multiply by the coverage ammount you want, and divide by the read size.
-	So for 3x coverage for a 1Mbp genome with 100 bp sized reads : (1,000,000 x 3)/100 = 300,000 reads to get 3x coverage
+	So for 3x coverage for a 1Mbp genome with 100 bp sized reads : (1,000,000 x 3)/100 = 30,000 reads to get 3x coverage
 For Step 1.3
 1. In my simulation 50103 bases were not sequenced, this is 5.0103% of the genome.
 2. The poisson expectation fits the simulation quite well, while the normal distribution does not fit the data nearly as well.
@@ -17,7 +17,7 @@ dot -Tpng > ex2_diagraph.png dots.dot
 For Step 2.5
 One possible sequence is: TTCTTATTCATTGATTGATTT
 For Step 2.6
-To generate a genome sequence with no ambiguity you would need to be able to generate a De Bruijn graph with no loops. 
+To generate a genome sequence with no ambiguity you would need to be able to generate a De Bruijn graph with no loops. To generate this you would need better read coverage that can resolve these loops. In some cases these loops will still exist but with sufficient read depth you should be able to identify locations where looping is due to long repeated sequences and give an estimate of how many repeats of those sections you have.
 For Step 3.1
 I used Bard
 
