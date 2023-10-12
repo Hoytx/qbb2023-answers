@@ -64,7 +64,7 @@ seq2_align = ""
 path = ''
 gaps1 = 0
 gaps2 = 0
-while i != 0 and j != 0:
+while i != 0 or j != 0:
     if traceback_matrix[i,j] == 'D':
         seq1_align = sequence1[i-1] + seq1_align
         seq2_align = sequence2[j-1] + seq2_align
