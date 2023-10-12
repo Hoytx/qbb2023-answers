@@ -56,8 +56,8 @@ for i in range(1, len(sequence1)+1): # loop through rows
             F_matrix[i,j] = v
             traceback_matrix[i,j] = 'U'
 #Setting myself up to start in the bottom right corner
-i = len(sequence1) - 1
-j = len(sequence2) - 1
+i = len(sequence1)
+j = len(sequence2)
 alignment_score = F_matrix[i,j]
 seq1_align = ""
 seq2_align = ""
