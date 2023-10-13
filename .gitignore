@@ -25,3 +25,6 @@
 *.tbz2
 *.vcf
 *.csv
+*.dot
+*.wig
+*.pfm
