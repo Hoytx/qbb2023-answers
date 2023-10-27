@@ -68,14 +68,13 @@ def main():
     
     #cdf function of poisson 
 
-    values = scipy.stats.poisson.cdf(sample_score, (local_background * 2 * fragment_width))
+    values = 1 - scipy.stats.poisson.cdf(sample_score, (local_background * 2 * fragment_width))
 
 
     # Transform the p-values into -log10
     # You will also need to set a minimum pvalue so you doen't get a divide by
     # zero error. I suggest using 1e-250
-    pvalues = 1e-250
-    pvalues = -numpy.log10(values)
+    pvalues = -numpy.log10(values + 1e-250)
     # Write p-values to a wiggle file
     # The file should start with the line
     # "fixedStep chrom=CHROM start=CHROMSTART step=1 span=1" where CHROM and
