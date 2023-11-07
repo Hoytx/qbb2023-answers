@@ -64,8 +64,8 @@ df['CHR'] = df['CHR'].astype('category')
 #print(df.head(10))
 
 df['ind'] = range(len(df))
-df_grouped = df.groupby(('CHR'))
-
+df_filtered = df[df['TEST'] == 'ADD']
+df_grouped = df_filtered.groupby(('CHR'))
 #print(df_grouped.head(10))
 
 fig, (ax, ay) = plt.subplots(2, 1)
@@ -75,7 +75,7 @@ x_labels_pos = []
 chromosome = 0
 for num, (name, group) in enumerate(df_grouped):
     chromosome += 1
-    vals = df.loc[df['CHR'] == chromosome, 'p_adj'].to_list()
+    vals = df_filtered.loc[df_filtered['CHR'] == chromosome, 'p_adj'].to_list()
     group.plot(kind='scatter', x='ind', y='p_adj', c = vals, cmap = cmap, norm = norm, ax = ax, s=4)
     x_labels.append(name)
     x_labels_pos.append((group['ind'].iloc[-1] - (group['ind'].iloc[-1] - group['ind'].iloc[0])/2))
