@@ -52,7 +52,7 @@ plt.close()
 #Adapted from code I found here: https://piperwrites95180714.wordpress.com/2018/04/04/genome-wide-association-study-manhattan-plot-tutorial/
 ######
 #Commented out to avoid running over and over as I code
-'''
+
 
 pd.set_option('expand_frame_repr', False)
 df = pd.read_table('GS451_IC50_gwas_results.assoc.linear', sep = '\s+')
@@ -98,8 +98,8 @@ df['CHR'] = df['CHR'].astype('category')
 #print(df.head(10))
 
 df['ind'] = range(len(df))
-df_grouped = df.groupby(('CHR'))
-
+df_filtered = df[df['TEST'] == 'ADD']
+df_grouped = df_filtered.groupby(('CHR'))
 #print(df_grouped.head(10))
 
 x_labels = []
@@ -107,7 +107,7 @@ x_labels_pos = []
 chromosome = 0
 for num, (name, group) in enumerate(df_grouped):
     chromosome += 1
-    vals = df.loc[df['CHR'] == chromosome, 'p_adj'].to_list()
+    vals = df_filtered.loc[df_filtered['CHR'] == chromosome, 'p_adj'].to_list()
     group.plot(kind='scatter', x='ind', y='p_adj', c = vals, cmap = cmap, norm = norm, ax = ay, s=4)
     x_labels.append(name)
     x_labels_pos.append((group['ind'].iloc[-1] - (group['ind'].iloc[-1] - group['ind'].iloc[0])/2))
@@ -124,7 +124,7 @@ ay.set_title('CB1908_IC50_gwas_results')
 plt.tight_layout()
 fig.savefig('Manhattan_plots.png', dpi=1000)
 plt.close()
-'''
+
 
 df = pd.read_table('CB1908_IC50_gwas_results.assoc.linear', sep = '\s+')
 
