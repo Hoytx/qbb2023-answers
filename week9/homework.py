@@ -102,7 +102,7 @@ file2.close()
 fig, ax = plt.subplots()
 col = []
 for i in range(results.shape[0]):
-    if results["log2FoldChange"][i] > 1 and results["padj"][i] <= 0.1:
+    if abs(results["log2FoldChange"][i]) > 1 and results["padj"][i] <= 0.1:
         col.append("red")
     else:
         col.append("gray")
